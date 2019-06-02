@@ -164,7 +164,7 @@ for x in range(0,count4):
         'ToPort': -1,
         'UserIdGroupPairs': [{
         'GroupId': group_name_id[0],
-        'Description': description}]},
+        'Description': description}]}
     """    
     elb_rule={'IpProtocol': 'tcp',
         'FromPort': 443,
