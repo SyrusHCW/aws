@@ -1,4 +1,0 @@
-protocol,from port, to port,cidr, description
-tcp,22,22,10.49.128.17/32,PHL-DU-DOROY_SSH
-tcp,22,22,10.49.128.18/32,PHL-DU-ROYTS1_SSH
--1,-1,-1,10.49.128.19/32,PHL-DU-DOSOL1_ANY
