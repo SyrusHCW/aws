@@ -69,11 +69,11 @@ for x in range(0,count0):
 ################# Start searching for matching tags #######################             #if adding a new tag seach, create a list variable in top for loop
 ###########################################################################
 
-            if sg_response['SecurityGroups'][y]['GroupName'] == 'WFE-SG':               # Searches for Web front end
+            if sg_response['SecurityGroups'][y]['GroupName'] == 'DOPS-WFE-SG':               # Searches for Web front end
                 gid = (sg_response['SecurityGroups'][y]['GroupId'])
                 for tag in tags:
                     #print(tag)
-                    if tag['Key'] == 'security:wfe' and tag['Value'] == 'true':
+                    if tag['Key'] == 'security:dops-wfe' and tag['Value'] == 'true':
                         i.append(inst_id)
                         sg_inst.append(gid)
                     else:
