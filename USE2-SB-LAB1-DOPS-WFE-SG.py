@@ -59,6 +59,7 @@ vpc = ec2.Vpc(vpc_id[0])
 sg_name = '{0}{1}'.format(env_name, group_name)
 
 sg_id = []
+sg_vpc = []
 
 response = client.describe_security_groups()
 
@@ -79,6 +80,14 @@ for x in range(0,count3):
     else:
         continue
 
+response = client.describe_security_groups()
+count1 = len(response['SecurityGroups'])
+   
+for y in range(0,count1):
+   # if a security group belongs to the same vpc as an instance, it will added them to the list sg_vpc
+   if response['SecurityGroups'][y]['VpcId'] == vpc_id[0]:
+       sg_vpc.append(response['SecurityGroups'][y]['GroupId'])
+            
 ######################################################################################
 ################ Look for elastic load balancers security group ######################
 ######################################################################################
@@ -86,12 +95,12 @@ for x in range(0,count3):
 public_sg = []
 elb_sg = []
 
-count7 = len(sg_id)
+count7 = len(sg_vpc)
 
-print(sg_id)
+print(sg_vpc)
 for c in range(0,count7): 
     tag_list = []   
-    security_group = client.describe_security_groups(GroupIds = [sg_id[c]])
+    security_group = client.describe_security_groups(GroupIds = [sg_vpc[c]])
     count8 = len(security_group['SecurityGroups'][0])
     #print(count8)
     try:
