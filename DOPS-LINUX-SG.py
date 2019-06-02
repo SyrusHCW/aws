@@ -59,7 +59,7 @@ for z in range(0,count1):
     count4 = len(sg_id)
     for x in range(0,count4):
         IpPermissions = []
-        path = '{0}{1}'.format('security-groups', csv_name)
+        path = '{0}{1}'.format('security-groups/', csv_name)
         f = open(path)
         csv_f = csv.reader(f)
         headers = next(csv_f)
