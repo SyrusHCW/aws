@@ -20,6 +20,8 @@ csv_name = '{0}{1}'.format(group_name, '.csv')
 #aws_access_key = sys.argv[1]
 #aws_secret_key = sys.argv[2]
 
+description = 'DevOps web fron end security group'
+
 count1 = len(region)
 
 print(group_name)
