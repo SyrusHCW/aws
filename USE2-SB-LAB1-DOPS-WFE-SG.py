@@ -87,6 +87,8 @@ public_sg = []
 elb_sg = []
 
 count7 = len(sg_id)
+
+print(count7)
 for c in range(0,count7): 
     tag_list = []   
     security_group = client.describe_security_groups(GroupIds = [sg_id[c]])
@@ -98,6 +100,7 @@ for c in range(0,count7):
         for d in range(0,count9):
             if security_group['SecurityGroups'][0]['Tags'][d]['Key'] == 'public:fe':
                 elb_sg.append(security_group['SecurityGroups'][0]['GroupId'])
+                print(True)
             else:
                 print(False)    
         else:
@@ -152,18 +155,17 @@ for x in range(0,count4):
         'ToPort': -1,
         'UserIdGroupPairs': [{
         'GroupId': group_name_id[0],
-        'Description': description}]}
-    """
+        'Description': description}]},
+    """    
     elb_rule={'IpProtocol': 'tcp',
         'FromPort': 443,
         'ToPort': 443,
         'UserIdGroupPairs': [{
         'GroupId': elb_sg[0],
         'Description': "Allows ELB to talk to Web front ends"}]}
-    """
-    print(elb_sg)
+    """    
     IpPermissions.append(sg_rule)
-    IpPermissions.append(elb_rule)
+    #IpPermissions.append(elb_rule)
     security_group = ec2.SecurityGroup(group_name_id[0])
     print(IpPermissions)
     data = security_group.authorize_ingress(
