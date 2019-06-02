@@ -88,7 +88,7 @@ elb_sg = []
 
 count7 = len(sg_id)
 
-print(count7)
+print(sg_id)
 for c in range(0,count7): 
     tag_list = []   
     security_group = client.describe_security_groups(GroupIds = [sg_id[c]])
