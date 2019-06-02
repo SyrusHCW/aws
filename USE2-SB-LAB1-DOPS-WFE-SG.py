@@ -153,12 +153,15 @@ for x in range(0,count4):
         'UserIdGroupPairs': [{
         'GroupId': group_name_id[0],
         'Description': description}]}
+    """
     elb_rule={'IpProtocol': 'tcp',
         'FromPort': 443,
         'ToPort': 443,
         'UserIdGroupPairs': [{
         'GroupId': elb_sg[0],
         'Description': "Allows ELB to talk to Web front ends"}]}
+    """
+    print(elb_sg)
     IpPermissions.append(sg_rule)
     IpPermissions.append(elb_rule)
     security_group = ec2.SecurityGroup(group_name_id[0])
