@@ -99,7 +99,7 @@ for x in range(0,count0):
                     else:
                         continue
 
-            if sg_response['SecurityGroups'][y]['GroupName'] == 'default':           # Searches for windows instances
+            if sg_response['SecurityGroups'][y]['GroupName'] == 'default':                  # Searches for default instances
                 gid = sg_response['SecurityGroups'][y]['GroupId']
                 for tag in tags:
                         #print(tag)
