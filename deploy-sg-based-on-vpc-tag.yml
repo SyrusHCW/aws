@@ -1,1 +1,9 @@
-###
+---
+- hosts: localhost
+  connection: local
+
+
+  tasks:
+
+    - name: Deploy security group based off of VPC tag
+      script: deploy-sg-based-on-vpc-tag.py '{{aws_access_key}}' '{{aws_secret_key}}'
