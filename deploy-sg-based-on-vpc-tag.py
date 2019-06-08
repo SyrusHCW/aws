@@ -8,21 +8,21 @@ import re
 ### User definedvars
 region = 'us-east-2'
 
-#aws_access_key = sys.argv[1]
-#aws_secret_key = sys.argv[2]
+aws_access_key = sys.argv[1]
+aws_secret_key = sys.argv[2]
 
 description = 'VPC tag genertaed security group'
 
 
 ec2 = boto3.resource('ec2',
-            #aws_access_key_id = aws_access_key ,
-            #aws_secret_access_key = aws_secret_key ,
+            aws_access_key_id = aws_access_key ,
+            aws_secret_access_key = aws_secret_key ,
             region_name = region,
 )
 
 client = boto3.client('ec2',
-            #aws_access_key_id = aws_access_key ,
-            #aws_secret_access_key = aws_secret_key ,
+            aws_access_key_id = aws_access_key ,
+            aws_secret_access_key = aws_secret_key ,
             region_name = region,
 )
 
