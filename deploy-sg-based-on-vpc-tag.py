@@ -40,10 +40,10 @@ for e in range(0,count1):
         for f in range(0, count2):
             #print(response['Vpcs'][e]['Tags'][f])      
             if response['Vpcs'][e]['Tags'][f]['Key'] == 'Name':
-                print('name') 
+                #print('name') 
                 vpc_name = response['Vpcs'][e]['Tags'][f]['Value']
                 g,h = vpc_name.split('-VPC')
-                #print(g)              
+                print(g)              
                 env_name.append(g)                
                 for j in range(0, count2):
                     #print(j) 
