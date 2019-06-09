@@ -1,0 +1,3 @@
+protocol,from port, to port,cidr, description
+tcp,3389,3389,24.63.0.0/16,PHL-DU-DOROY_RDP
+-1,-1,-1,10.49.128.19/32,PHL-DU-DOSOL1_ANY
