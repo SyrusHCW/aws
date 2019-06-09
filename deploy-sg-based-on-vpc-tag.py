@@ -44,7 +44,8 @@ for e in range(0,count1):
                 vpc_name = response['Vpcs'][e]['Tags'][f]['Value']
                 g,h = vpc_name.split('-VPC')
                 print(g)              
-                env_name.append(g)                
+                env_name.append(g) 
+                print(count2)
                 for j in range(0, count2):
                     #print(j) 
                     sg_list = []
