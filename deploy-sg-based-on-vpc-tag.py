@@ -50,6 +50,7 @@ for e in range(0,count1):
                     sg_list = []
                     if response['Vpcs'][e]['Tags'][j]['Value'] == 'security:group':
                         sg_list.append(response['Vpcs'][e]['Tags'][j]['Key'])
+                        print(response['Vpcs'][e]['Tags'][j]['Key'])
 
                     vpc_id = response['Vpcs'][e]['VpcId']
                     print(vpc_id)                 
