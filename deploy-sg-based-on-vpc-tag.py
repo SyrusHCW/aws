@@ -33,7 +33,7 @@ response = client.describe_vpcs()
 count1 = len(response['Vpcs'])
 
 for e in range(0,count1):
-    print(response['Vpcs'][e]['Tags'])
+    #print(response['Vpcs'][e]['Tags'])
     try:
         count2 = len(response['Vpcs'][e]['Tags'])
         env_name = []
@@ -45,16 +45,16 @@ for e in range(0,count1):
                 g,h = vpc_name.split('-VPC')
                 print(g)              
                 env_name.append(g) 
-                print(count2)
+                #print(count2)
                 for j in range(0, count2):
                     print(response['Vpcs'][e]['Tags'][j]['Key']) 
                     sg_list = []
                     if response['Vpcs'][e]['Tags'][j]['Value'] == 'security:group':
                         sg_list.append(response['Vpcs'][e]['Tags'][j]['Key'])
-                        print(response['Vpcs'][e]['Tags'][j]['Key'])
+                        #print(response['Vpcs'][e]['Tags'][j]['Key'])
 
                     vpc_id = response['Vpcs'][e]['VpcId']
-                    print(vpc_id)                 
+                    #print(vpc_id)                 
                     vpc = ec2.Vpc(vpc_id)
                     group_name = response['Vpcs'][e]['Tags'][j]['Key']
                     csv_name = '{0}{1}'.format(group_name, '.csv')
@@ -79,7 +79,7 @@ for e in range(0,count1):
                             DryRun=False,
                             )
                         sg = str(security_group)
-                        print(sg)
+                        #print(sg)
                         m,n,o = sg.split("'") 
                         security_group = ec2.SecurityGroup(n)
                         sg_rule={'IpProtocol': '-1',
