@@ -17,13 +17,13 @@ description = 'VPC tag genertaed security group'
 ec2 = boto3.resource('ec2',
             aws_access_key_id = aws_access_key ,
             aws_secret_access_key = aws_secret_key ,
-            region_name = region,
+            region_name = region
 )
 
 client = boto3.client('ec2',
             aws_access_key_id = aws_access_key ,
             aws_secret_access_key = aws_secret_key ,
-            region_name = region,
+            region_name = region
 )
 
 
@@ -33,14 +33,14 @@ response = client.describe_vpcs()
 count1 = len(response['Vpcs'])
 
 for e in range(0,count1):
-    #print(response['Vpcs'][e]['Tags'])
+    print(response['Vpcs'][e]['Tags'])
     try:
         count2 = len(response['Vpcs'][e]['Tags'])
         env_name = []
         for f in range(0, count2):
             #print(response['Vpcs'][e]['Tags'][f])      
             if response['Vpcs'][e]['Tags'][f]['Key'] == 'Name':
-                #print('name') 
+                print('name') 
                 vpc_name = response['Vpcs'][e]['Tags'][f]['Value']
                 g,h = vpc_name.split('-VPC')
                 #print(g)              
