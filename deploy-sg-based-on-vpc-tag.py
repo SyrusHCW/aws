@@ -47,7 +47,7 @@ for e in range(0,count1):
                 env_name.append(g) 
                 print(count2)
                 for j in range(0, count2):
-                    #print(j) 
+                    print(response['Vpcs'][e]['Tags'][j]['Key']) 
                     sg_list = []
                     if response['Vpcs'][e]['Tags'][j]['Value'] == 'security:group':
                         sg_list.append(response['Vpcs'][e]['Tags'][j]['Key'])
