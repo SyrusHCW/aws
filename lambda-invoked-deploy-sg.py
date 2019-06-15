@@ -6,8 +6,8 @@ import csv
 import re
 
 ### User definedvars
-vpc_id = 'vpc-02cab3df56dd953b6'
-region = 'us-east-2'
+vpc_id = vpc_id
+region = region
 
 
 aws_access_key = sys.argv[1]
