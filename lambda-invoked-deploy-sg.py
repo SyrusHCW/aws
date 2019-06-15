@@ -26,11 +26,18 @@ client = boto3.client('ec2',
             region_name = region
 )
 
+env_name = []
+
 response = client.describe_vpcs(VpcIds = [vpc_id])
-
 tags = response['Vpcs'][0]['Tags']
-
 tag_count = len(response['Vpcs'][0]['Tags'])
+
+for tag in range(0,tag_count):
+    if response['Vpcs'][0]['Tags'][tag]['Key'] == 'Name':
+        vpc_name = response['Vpcs'][0]['Tags'][tag]['Value']
+        m,n = vpc_name.split('-VPC')
+        env_name.append(m)
+
 for tag in range(0,tag_count):
     try:
         key = response['Vpcs'][0]['Tags'][tag]['Key']
@@ -98,7 +105,7 @@ for tag in range(0,tag_count):
                 data = security_group.authorize_ingress(
                     IpPermissions=IpPermissions)
                 print(env_name)
-                name = '{0}{1}{2}'.format(env_name, '-', group_name.upper()) 
+                name = '{0}{1}{2}'.format(env_name[0], '-', group_name.upper()) 
                 print(name)        
                 sg_tag = security_group.create_tags(
                     DryRun=False,
