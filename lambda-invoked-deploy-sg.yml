@@ -7,4 +7,4 @@
   tasks:
 
     - name: Deploy security group based off of VPC tag
-      script: lambda-invoked-deploy-sg.py '{{aws_access_key}}' '{{aws_secret_key}}'
+      script: lambda-invoked-deploy-sg.py '{{aws_access_key}}' '{{aws_secret_key}}' '{{region}}' '{{vpc_id}}'
