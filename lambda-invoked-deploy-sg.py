@@ -97,8 +97,9 @@ for tag in range(0,tag_count):
                 print(IpPermissions)
                 data = security_group.authorize_ingress(
                     IpPermissions=IpPermissions)
-                #g_name = groupname
-                name = '{0}{1}{2}'.format(env_name, '-', group_name.upper() )    
+                print(env_name)
+                name = '{0}{1}{2}'.format(env_name, '-', group_name.upper()) 
+                print(name)        
                 sg_tag = security_group.create_tags(
                     DryRun=False,
                     Tags=[
