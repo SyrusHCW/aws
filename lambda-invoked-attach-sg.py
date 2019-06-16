@@ -10,8 +10,7 @@ aws_access_key = sys.argv[1]
 aws_secret_key = sys.argv[2]
 
 region = sys.argv[3]
-vpc_id = sys.argv[4]
-inst_id = sys.argv[5]
+inst_id = sys.argv[4]
 
 ec2 = boto3.resource('ec2',
     aws_access_key_id = aws_access_key ,
@@ -30,12 +29,16 @@ client = boto3.client('ec2',
 ###########################################################################
 
 instance = ec2.Instance(inst_id)
+vpc = instance.vpc
+vpc_str = str(vpc)          # converts aws source to string
+m,n,o = vpc_str.split("'")  # return value looks like ec2.SecurityGroup(id='sg-0a3546680dcc10614'), this will grab id between single quotes, and assign it a 'n'
+vpc_id = n
 tags = instance.tags
 i = []                      # contains the instance id of instances with tags
 i_dict = {}                 # creates a dictonary, which contains instance id as keyword, and list of security group id's as value
 sg_vpc = []                 # contains all security groups in vpc
 sg_inst = []                # list of security groups, this will become the value in the dictonary
-
+vpc_id = []
 
 ###########################################################################
 ############# Grab a list of all security groups in region ################
