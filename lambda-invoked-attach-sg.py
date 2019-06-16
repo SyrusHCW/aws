@@ -38,7 +38,6 @@ i = []                      # contains the instance id of instances with tags
 i_dict = {}                 # creates a dictonary, which contains instance id as keyword, and list of security group id's as value
 sg_vpc = []                 # contains all security groups in vpc
 sg_inst = []                # list of security groups, this will become the value in the dictonary
-vpc_id = []
 
 ###########################################################################
 ############# Grab a list of all security groups in region ################
@@ -52,9 +51,9 @@ for y in range(0,count1):
     # if a security group belongs to the same vpc as an instance, it will added them to the list sg_vpc
     if sg_response['SecurityGroups'][y]['VpcId'] == vpc_id:
         sg_vpc.append(sg_response['SecurityGroups'][y]['GroupId'])
-        #print(sg_response['SecurityGroups'][y]['GroupName']
+        print(sg_response['SecurityGroups'][y]['GroupName'])
         i_dict[inst_id] = []
-        #print(sg_vpc)
+        print(sg_vpc)
 
 
 ###########################################################################
