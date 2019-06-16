@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import boto3
 from botocore.exceptions import ClientError
 import sys
