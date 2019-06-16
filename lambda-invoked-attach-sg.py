@@ -44,6 +44,7 @@ vpc_id = []
 ############# Grab a list of all security groups in region ################
 ###########################################################################
 
+print(vpc_id)
 sg_response = client.describe_security_groups()
 count1 = len(sg_response['SecurityGroups'])
    
