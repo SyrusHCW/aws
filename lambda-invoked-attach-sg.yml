@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+
+
+  tasks:
+
+    - name: Deploy security group based off of VPC tag
+      script: lambda-invoked-attach-sg.py '{{aws_access_key}}' '{{aws_secret_key}}' '{{region}}' '{{vpc_id}}' '{{inst_id}}'
