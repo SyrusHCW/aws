@@ -94,5 +94,3 @@ if i_dict[inst_id][0] != []:                                                    
     sg_instance = ec2.Instance(inst_id)                                            # Select instance 
     sg_instance.modify_attribute(Groups=sg_list)                                   # Update instances using list
 
-else:
-    continue
