@@ -5,5 +5,5 @@
 
   tasks:
 
-    - name: Deploy security group based off of VPC tag
+    - name: Attach security group to instance
       script: lambda-invoked-attach-sg.py '{{aws_access_key}}' '{{aws_secret_key}}' '{{region}}' '{{inst_id}}'
